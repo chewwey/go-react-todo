@@ -3,11 +3,6 @@ import Axios from 'axios'
 import './Todolist.css'
 
 class Todolist extends Component{
-
-    handleClick(event){
-        Axios.patch('http://localhost:4000/api/todos/' + event.target.value)
-        };
-
     handleRemove(event) {
         Axios.delete('http://localhost:4000/api/todos/' + event.target.value + '/delete')
         };
