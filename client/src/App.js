@@ -44,6 +44,9 @@ class App extends Component {
   render(){
     return(
       <div>
+        <p>
+          hi
+        </p>
         <Header />
         <Addtodo />
         <Todolist todo={this.state.todos}/>
