@@ -66,6 +66,23 @@ func main() {
 		return c.JSON(todos)
 	})
 
+	app.Patch("api/todos/:id/edit", func(c *fiber.Ctx) error {
+		id, _ := c.ParamsInt("id")
+
+		todo := &Todo{}
+
+		if err := c.BodyParser(todo); err != nil {
+			return err
+		}
+		for i, t := range todos {
+			if t.ID == id {
+				todos[i].Title = todo.Title
+			}
+		}
+
+		return c.JSON(todos)
+	})
+
 	app.Get("/api/todos", func(c *fiber.Ctx) error {
 		return c.JSON(todos)
 	})
